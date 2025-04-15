@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>انقطاع الاتصال / Connection Lost</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f8f8f8;
+    }
+    h1 {
+      color: #e53935;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>لقد انقطع اتصالك بالخادم</h1>
+  <h2>Connection to the server has been lost</h2>
+
+  <p>اضغط على المسافة أو الشاشة للقفز - Press space or tap to jump</p>
+
+  <canvas id="gameCanvas" width="600" height="150"></canvas>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let dino = { x: 50, y: 100, vy: 0, gravity: 0.6, jump: -10, grounded: true };
+    let trees = [{ x: 600, width: 20, height: 40 }];
+    let score = 0;
+
+    function drawDino() {
+      ctx.fillStyle = "#555";
+      ctx.fillRect(dino.x, dino.y, 30, 30);
+    }
+
+    function drawTrees() {
+      ctx.fillStyle = "green";
+      for (let tree of trees) {
+        ctx.fillRect(tree.x, canvas.height - tree.height, tree.width, tree.height);
+      }
+    }
+
+    function update() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // ديناصور
+      dino.vy += dino.gravity;
+      dino.y += dino.vy;
+      if (dino.y >= 100) {
+        dino.y = 100;
+        dino.vy = 0;
+        dino.grounded = true;
+      }
+
+      // شجر
+      for (let tree of trees) {
+        tree.x -= 4;
+        if (tree.x + tree.width < 0) {
+          tree.x = 600 + Math.random() * 400;
+        }
+
+        // تصادم
+        if (dino.x < tree.x + tree.width &&
+            dino.x + 30 > tree.x &&
+            dino.y + 30 > canvas.height - tree.height) {
+          alert("انتهت اللعبة - Game Over");
+          document.location.reload();
+        }
+      }
+
+      drawDino();
+      drawTrees();
+
+      requestAnimationFrame(update);
+    }
+
+    function jump() {
+      if (dino.grounded) {
+        dino.vy = dino.jump;
+        dino.grounded = false;
+      }
+    }
+
+    document.addEventListener("keydown", function(e) {
+      if (e.code === "Space") jump();
+    });
+
+    document.addEventListener("click", jump);
+
+    update();
+  </script>
+
+</body>
+</html>
