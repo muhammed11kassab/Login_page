@@ -1,44 +1,27 @@
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>استعادة كلمة المرور</title>
+  <title>نسيت كلمة المرور</title>
   <style>
     body {
-      direction: rtl;
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      text-align: right;
+      padding: 40px;
     }
-    .forgot-box {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      width: 300px;
-      text-align: center;
-    }
-    input {
+    label {
       display: block;
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-    }
-    button {
-      padding: 10px;
-      width: 100%;
-      background-color: #1877f2;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    .other-method {
       margin-top: 20px;
     }
-    .other-method a {
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+    }
+    .alternative {
+      display: block;
+      margin-top: 20px;
       color: #1877f2;
       text-decoration: none;
     }
@@ -46,18 +29,14 @@
 </head>
 <body>
 
-<div class="forgot-box">
-  <h2>استعادة كلمة المرور</h2>
-  <p>أدخل رقم هاتفك أو بريدك الإلكتروني:</p>
+  <h2>استعادة الحساب</h2>
+
   <form>
-    <input type="text" name="recovery" placeholder="رقم الهاتف أو Gmail" required>
-    <button type="submit">إرسال</button>
+    <label>أدخل بريدك الإلكتروني أو رقم هاتفك:</label>
+    <input type="text" name="recovery" required>
   </form>
 
-  <div class="other-method">
-    <a href="error202.html">هل تريد تجربة طريقة أخرى؟</a>
-  </div>
-</div>
+  <a href="error.html" class="alternative">هل تريد تجربة طريقة أخرى؟</a>
 
 </body>
 </html>
